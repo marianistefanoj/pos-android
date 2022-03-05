@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.cadastroalunos.dao.AlunoDAO;
+import com.example.cadastroalunos.model.Aluno;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void cadastrarAluno(View view) {
-        Intent intent = new Intent(this, CadastroAlunoActivity.class);
+        Intent intent = new Intent(this, ListaAlunoActivity.class);
         startActivity(intent);
     }
 }

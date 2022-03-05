@@ -20,7 +20,10 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.cadastroalunos.dao.AlunoDAO;
+import com.example.cadastroalunos.model.Aluno;
 import com.example.cadastroalunos.util.CpfMask;
+import com.example.cadastroalunos.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
@@ -34,6 +37,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     private TextInputEditText edDtMatAluno;
     private MaterialSpinner spCursos;
     private MaterialSpinner spPeriodo;
+    private LinearLayout lnPrincipal;
 
     private int vAno;
     private int vMes;
@@ -50,6 +54,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         edCpfAluno = findViewById(R.id.edCpfAluno);
         edDtNascAluno = findViewById(R.id.edDtNascAluno);
         edDtMatAluno = findViewById(R.id.edDtMatAluno);
+        lnPrincipal = findViewById(R.id.lnPrincipal);
 
         edDtNascAluno.setFocusable(false);
         edDtMatAluno.setFocusable(false);
@@ -147,6 +152,29 @@ public class CadastroAlunoActivity extends AppCompatActivity {
             edDtMatAluno.requestFocus();
             return;
         }
+
+        salvarAluno();
+    }
+
+    public void salvarAluno(){
+        Aluno aluno = new Aluno();
+        aluno.setRa(Integer.parseInt(edRaAluno.getText().toString()));
+        aluno.setNome(edNomeAluno.getText().toString());
+        aluno.setCpf(edCpfAluno.getText().toString());
+        aluno.setDtNasc(edDtNascAluno.getText().toString());
+        aluno.setDtMatricula(edDtMatAluno.getText().toString());
+        aluno.setCurso(spCursos.getSelectedItem().toString());
+        aluno.setPeriodo(spPeriodo.getSelectedItem().toString());
+
+        if(AlunoDAO.salvar(aluno) > 0) {
+
+            setResult(RESULT_OK);
+            finish();
+        }else
+            Util.customSnackBar(lnPrincipal, "Erro ao salvar o aluno ("+aluno.getNome()+") " +
+                    "verifique o log", 0);
+
+
     }
 
     @Override
