@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListaAlunoActivity.class);
         startActivity(intent);
     }
+
+    public void cadastrarProfessor(View view){
+        Intent intentP = new Intent(this, ListaProfessorActivity.class);
+        startActivity(intentP);
+    }
 }

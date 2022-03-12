@@ -13,9 +13,14 @@
         <activity
             android:name=".ListaAlunoActivity"
             android:exported="false" />
-
         <activity
             android:name=".CadastroAlunoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaProfessorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroProfessorActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

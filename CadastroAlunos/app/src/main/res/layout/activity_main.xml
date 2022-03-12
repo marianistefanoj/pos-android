@@ -15,4 +15,12 @@
         android:elevation="15dp"
         android:onClick="cadastrarAluno"/>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_cad_professor"
+        android:elevation="15dp"
+        android:onClick="cadastrarProfessor"/>
+
 </LinearLayout>
