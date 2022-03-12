@@ -13,4 +13,6 @@
     <string name="salvar">Salvar</string>
     <string name="curso">Curso</string>
     <string name="addAluno">Adicionar Aluno</string>
+    <string name="codDisciplina">Código Disciplina</string>
+    <string name="cargaHoraria">Carga Horária</string>
 </resources>

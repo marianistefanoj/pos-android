@@ -1,0 +1,70 @@
+package com.example.cadastroalunos.adapters;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cadastroalunos.R;
+import com.example.cadastroalunos.model.Disciplina;
+import com.example.cadastroalunos.model.Disciplina;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
+
+public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.DisciplinaViewHolder> {
+
+    private List<Disciplina> listaDisciplinas;
+    private Context context;
+
+    public DisciplinaAdapter(List<Disciplina> listaDisciplinas, Context context){
+        this.listaDisciplinas = listaDisciplinas;
+        this.context = context;
+    }
+    
+    public static class DisciplinaViewHolder extends RecyclerView.ViewHolder {
+        TextInputEditText edCodigoDisciplina;
+        TextInputEditText edNomeDisciplina;
+        TextInputEditText edCargaHoraria;
+
+        public DisciplinaViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            edCodigoDisciplina = (TextInputEditText)itemView.findViewById(R.id.edCodDisciplina);
+            edNomeDisciplina = (TextInputEditText)itemView.findViewById(R.id.edNomeDisciplina);
+            edCargaHoraria =  (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
+
+        }
+    }
+
+    @Override
+    public DisciplinaAdapter.DisciplinaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_view_disciplina, parent, false);
+
+        DisciplinaAdapter.DisciplinaViewHolder viewHolder = new DisciplinaAdapter.DisciplinaViewHolder(view);
+
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull DisciplinaAdapter.DisciplinaViewHolder holder, int position) {
+        Disciplina Disciplina = listaDisciplinas.get(position);
+
+        holder.edCodigoDisciplina.setText(Disciplina.getCdDisciplina());
+        holder.edNomeDisciplina.setText(Disciplina.getNome());
+        holder.edCargaHoraria.setText(Disciplina.getCargaHoraria());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return listaDisciplinas.size();
+    }
+
+
+}
