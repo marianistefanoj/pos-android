@@ -2,6 +2,7 @@ package com.example.cadastroalunos.model;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Disciplina extends SugarRecord {
@@ -9,13 +10,17 @@ public class Disciplina extends SugarRecord {
     private int cdDisciplina;
     private String nome;
     private String cargaHoraria;
+    private String curso;
+    //private List<Aluno> alunos;
+    //private Professor professor;
 
     public Disciplina(){
     }
-    public Disciplina(int cdDisciplina, String nome, String cargaHoraria) {
+    public Disciplina(int cdDisciplina, String nome, String cargaHoraria, String curso) {
         this.cdDisciplina = cdDisciplina;
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
+        this.curso = curso;
     }
 
     public int getCdDisciplina() {
@@ -41,6 +46,13 @@ public class Disciplina extends SugarRecord {
     public void setCargaHoraria(String cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
+
+    public String getCurso() { return curso; }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
 
     @Override
     public boolean equals(Object o) {

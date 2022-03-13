@@ -41,17 +41,20 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         iniciaSpinners();
     }
 
-    private void iniciaSpinners(){
+    private void iniciaSpinners() {
         spCursos = findViewById(R.id.spCursos);
 
         String cursos[] = new String[]{"Análise e Desenv. Sistemas",
                 "Administração", "Ciências Contábeis", "Direito",
                 "Farmácia", "Nutrição"};
 
-        ArrayAdapter adapterCursos = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,  cursos);
+        String periodos[] = new String[]{"1a Série",
+                "2a Série", "3a Série", "4a Série"};
 
+        ArrayAdapter adapterCursos = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, cursos);
         spCursos.setAdapter(adapterCursos);
+
 
         //Ação ao selecionar o item da lista
         spCursos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -74,32 +77,34 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    //Validação dos campos
-    private void validaCampos(){
-        //Valida o campo de nome da disciplina
-        if(edNomeDisciplina.getText().toString().equals("")){
-            edNomeDisciplina.setError("Informe o nome da disciplina!");
-            edNomeDisciplina.requestFocus();
-            return;
+    }
+        //Validação dos campos
+        private void validaCampos() {
+            //Valida o campo de nome da disciplina
+            if (edNomeDisciplina.getText().toString().equals("")) {
+                edNomeDisciplina.setError("Informe o nome da disciplina!");
+                edNomeDisciplina.requestFocus();
+                return;
+            }
+
+            //Valida a carga horaria da disciplina
+            if (edCargaHoraria.getText().toString().equals("")) {
+                edCargaHoraria.setError("Informe a carga horaria da disciplina!");
+                edCargaHoraria.requestFocus();
+                return;
+            }
+
+            salvarDisciplina();
         }
 
-        //Valida a carga horaria da disciplina
-        if(edCargaHoraria.getText().toString().equals("")){
-            edCargaHoraria.setError("Informe a carga horaria da disciplina!");
-            edCargaHoraria.requestFocus();
-            return;
-        }
-
-        salvarDisciplina();
-    }
 
     public void salvarDisciplina(){
         Disciplina disciplina = new Disciplina();
         disciplina.setCdDisciplina(Integer.parseInt(edCodDisciplina.getText().toString()));
         disciplina.setNome(edNomeDisciplina.getText().toString());
         disciplina.setCargaHoraria(edCargaHoraria.getText().toString());
+        disciplina.setCurso(spCursos.getSelectedItem().toString());
 
 
         if(DisciplinaDAO.salvar(disciplina) > 0) {

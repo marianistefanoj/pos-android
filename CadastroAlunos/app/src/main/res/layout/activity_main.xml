@@ -8,19 +8,25 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_cad_aluno"
-        android:elevation="15dp"
-        android:onClick="cadastrarAluno"/>
-
-    <ImageView
-        android:id="@+id/imageView"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_cad_professor"
         android:elevation="15dp"
-        android:onClick="cadastrarProfessor"/>
+        android:onClick="cadastrarAluno"
+        android:text="Alunos" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"
+        android:onClick="cadastrarProfessor"
+        android:text="Professores" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"
+        android:onClick="cadastrarDisciplina"
+        android:text="Disciplinas" />
 
 </LinearLayout>

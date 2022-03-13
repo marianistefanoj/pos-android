@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cadastroalunos.R;
 import com.example.cadastroalunos.model.Disciplina;
-import com.example.cadastroalunos.model.Disciplina;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -29,6 +28,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         TextInputEditText edCodigoDisciplina;
         TextInputEditText edNomeDisciplina;
         TextInputEditText edCargaHoraria;
+        TextInputEditText edCurso;
 
         public DisciplinaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -36,6 +36,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
             edCodigoDisciplina = (TextInputEditText)itemView.findViewById(R.id.edCodDisciplina);
             edNomeDisciplina = (TextInputEditText)itemView.findViewById(R.id.edNomeDisciplina);
             edCargaHoraria =  (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
+            edCurso = (TextInputEditText)itemView.findViewById(R.id.edCursoDisciplina);
 
         }
     }
@@ -55,10 +56,10 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
     public void onBindViewHolder(@NonNull DisciplinaAdapter.DisciplinaViewHolder holder, int position) {
         Disciplina Disciplina = listaDisciplinas.get(position);
 
-        holder.edCodigoDisciplina.setText(Disciplina.getCdDisciplina());
+        holder.edCodigoDisciplina.setText( String.valueOf(Disciplina.getCdDisciplina()));
         holder.edNomeDisciplina.setText(Disciplina.getNome());
         holder.edCargaHoraria.setText(Disciplina.getCargaHoraria());
-
+        holder.edCurso.setText(Disciplina.getCurso());
     }
 
     @Override
