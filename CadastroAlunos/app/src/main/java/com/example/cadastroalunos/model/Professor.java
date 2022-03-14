@@ -65,4 +65,7 @@ public class Professor extends SugarRecord {
         return Objects.hash(cpf);
     }
 
+    @Override
+    public String toString(){ return nome;}
+
 }
