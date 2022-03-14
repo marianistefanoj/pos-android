@@ -14,10 +14,14 @@ import android.widget.LinearLayout;
 
 import com.example.cadastroalunos.dao.AlunoDAO;
 import com.example.cadastroalunos.dao.DisciplinaDAO;
+import com.example.cadastroalunos.dao.ProfessorDAO;
 import com.example.cadastroalunos.model.Aluno;
 import com.example.cadastroalunos.model.Disciplina;
+import com.example.cadastroalunos.model.Professor;
 import com.example.cadastroalunos.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 
@@ -26,7 +30,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     private TextInputEditText edCodDisciplina;
     private TextInputEditText edNomeDisciplina;
     private TextInputEditText edCargaHoraria;
-    private MaterialSpinner spCursos;
+    private MaterialSpinner spCursos, spProfessor;
     private LinearLayout lnPrincipal;
 
     @Override
@@ -43,18 +47,21 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
     private void iniciaSpinners() {
         spCursos = findViewById(R.id.spCursos);
+        spProfessor = findViewById(R.id.spProfessor);
 
+        //lista os registros dos cursos cadastrados
         String cursos[] = new String[]{"Análise e Desenv. Sistemas",
                 "Administração", "Ciências Contábeis", "Direito",
                 "Farmácia", "Nutrição"};
-
-        String periodos[] = new String[]{"1a Série",
-                "2a Série", "3a Série", "4a Série"};
 
         ArrayAdapter adapterCursos = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1, cursos);
         spCursos.setAdapter(adapterCursos);
 
+        //Lista os registros dos professores cadastrados
+        List<Professor> professores = ProfessorDAO.retornaProfessores("",new String[]{}, "nome");
+        ArrayAdapter adapterProfessores = new ArrayAdapter(this, android.R.layout.simple_list_item_1, professores);
+        spProfessor.setAdapter(adapterProfessores);
 
         //Ação ao selecionar o item da lista
         spCursos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -70,6 +77,18 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
                     llPrincipal.addView(btADS);*/
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
             }
 
             @Override
