@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cadastroalunos.R;
 import com.example.cadastroalunos.model.Disciplina;
+import com.example.cadastroalunos.model.Professor;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.DisciplinaViewHolder> {
 
     private List<Disciplina> listaDisciplinas;
+    private List<Professor> listaProfessor;
     private Context context;
 
     public DisciplinaAdapter(List<Disciplina> listaDisciplinas, Context context){
@@ -29,6 +31,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         TextInputEditText edNomeDisciplina;
         TextInputEditText edCargaHoraria;
         TextInputEditText edCurso;
+        TextInputEditText edProfessor;
 
         public DisciplinaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -37,6 +40,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
             edNomeDisciplina = (TextInputEditText)itemView.findViewById(R.id.edNomeDisciplina);
             edCargaHoraria =  (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
             edCurso = (TextInputEditText)itemView.findViewById(R.id.edCursoDisciplina);
+            edProfessor = (TextInputEditText)itemView.findViewById(R.id.edProfessor);
 
         }
     }
@@ -52,14 +56,17 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         return viewHolder;
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull DisciplinaAdapter.DisciplinaViewHolder holder, int position) {
         Disciplina Disciplina = listaDisciplinas.get(position);
 
-        holder.edCodigoDisciplina.setText( String.valueOf(Disciplina.getCdDisciplina()));
+        holder.edCodigoDisciplina.setText(String.valueOf(Disciplina.getCdDisciplina()));
         holder.edNomeDisciplina.setText(Disciplina.getNome());
         holder.edCargaHoraria.setText(Disciplina.getCargaHoraria());
         holder.edCurso.setText(Disciplina.getCurso());
+        holder.edProfessor.setText(Disciplina.getProfessor());
     }
 
     @Override

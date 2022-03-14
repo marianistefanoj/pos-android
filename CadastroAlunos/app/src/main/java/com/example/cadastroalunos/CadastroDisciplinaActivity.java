@@ -85,18 +85,6 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
             }
         });
 
-        spProfessor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
     }
         //Validação dos campos
         private void validaCampos() {
@@ -124,6 +112,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         disciplina.setNome(edNomeDisciplina.getText().toString());
         disciplina.setCargaHoraria(edCargaHoraria.getText().toString());
         disciplina.setCurso(spCursos.getSelectedItem().toString());
+        disciplina.setProfessor(spProfessor.getSelectedItem().toString());
 
 
         if(DisciplinaDAO.salvar(disciplina) > 0) {
