@@ -18,4 +18,6 @@
     <string name="professor">Professor</string>
     <string name="selecioneProfessor">Selecione o Professor</string>
     <string name="nomeProfessor">Nome do Professor</string>
+    <string name="regimeTurma">Regime Turma</string>
+    <string name="codTurma">Código Turma</string>
 </resources>

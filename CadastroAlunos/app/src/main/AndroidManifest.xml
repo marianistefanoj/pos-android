@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CadastroAlunos">
-
+        <activity
+            android:name=".ListaTurmaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroTurmaActivity"
+            android:exported="false" />
         <activity
             android:name=".ListaDisciplinaActivity"
             android:exported="false" />

@@ -29,4 +29,11 @@
         android:onClick="cadastrarDisciplina"
         android:text="Disciplinas" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="15dp"
+        android:onClick="cadastrarTurma"
+        android:text="Turmas" />
+
 </LinearLayout>

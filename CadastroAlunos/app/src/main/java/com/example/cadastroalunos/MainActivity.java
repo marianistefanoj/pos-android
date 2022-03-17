@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentDisciplina);
     }
 
+    public void cadastrarTurma(View view){
+        Intent intentTurma = new Intent(this, ListaTurmaActivity.class);
+        startActivity(intentTurma);
+    }
+
 }
