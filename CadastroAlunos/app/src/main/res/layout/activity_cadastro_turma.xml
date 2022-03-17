@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="@string/nome">
+        android:hint="@string/nomeTurma">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,8 +38,10 @@
         android:id="@+id/spRegimeTurma"
         app:ms_arrowColor="?attr/colorPrimary"
         app:ms_floatingLabelText="@string/regimeTurma"
-        app:ms_hint="@string/regimeTurma"
+        app:ms_hint="@string/selecioneRegimeTurma"
         app:ms_multiline="false"
         android:layout_margin="10dp"/>
+
+
 
 </LinearLayout>

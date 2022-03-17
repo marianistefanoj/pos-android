@@ -26,11 +26,11 @@ public class Turma extends SugarRecord {
         this.cdTurma = cdTurma;
     }
 
-    public String getNomeTurma() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNomeTurma(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -52,6 +52,6 @@ public class Turma extends SugarRecord {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hash(cdTurma, nome, regimeTurma);
     }
 }

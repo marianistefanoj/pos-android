@@ -30,7 +30,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_turma);
+        setContentView(R.layout.activity_lista_turma);
 
         lnLista = findViewById(R.id.lnListaTurma);
 

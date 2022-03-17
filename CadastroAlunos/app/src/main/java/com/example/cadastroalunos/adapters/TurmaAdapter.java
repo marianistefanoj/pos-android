@@ -32,9 +32,9 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
         public TurmaViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            edCodigoTurma = (TextInputEditText)itemView.findViewById(R.id.edCodTurma);
-            edNomeTurma = (TextInputEditText)itemView.findViewById(R.id.edNomeTurma);
-            edRegimeTurma = (TextInputEditText)itemView.findViewById(R.id.spRegimeTurma);
+            edCodigoTurma = (TextInputEditText)itemView.findViewById(R.id.codTurma);
+            edNomeTurma = (TextInputEditText)itemView.findViewById(R.id.nomeTurma);
+            edRegimeTurma = (TextInputEditText)itemView.findViewById(R.id.regimeTurma);
 
         }
     }
@@ -57,7 +57,7 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
         Turma Turma = listaTurmas.get(position);
 
         holder.edCodigoTurma.setText(String.valueOf(Turma.getCdTurma()));
-        holder.edNomeTurma.setText(Turma.getNomeTurma());
+        holder.edNomeTurma.setText(Turma.getNome());
         holder.edRegimeTurma.setText(Turma.getRegimeTurma());
     }
 

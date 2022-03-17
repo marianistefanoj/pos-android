@@ -28,6 +28,7 @@
         <entry key="..\:/Users/stefa/Desktop/androidstudio/unipar/CadastroAlunos/app/src/main/res/menu/menu_lista.xml" value="0.371875" />
         <entry key="app/src/main/res/layout/activity_cadastro_aluno.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_cadastro_disciplina.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/activity_cadastro_professor.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/layout/activity_cadastro_turma.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_lista_aluno.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_lista_disciplina.xml" value="0.353713768115942" />
@@ -36,6 +37,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_view_aluno.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_view_disciplina.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/card_view_professor.xml" value="0.29010416666666666" />
         <entry key="app/src/main/res/layout/card_view_turma.xml" value="0.340625" />
         <entry key="app/src/main/res/menu/menu_cadastro.xml" value="0.67" />
         <entry key="app/src/main/res/menu/menu_lista.xml" value="0.2578125" />

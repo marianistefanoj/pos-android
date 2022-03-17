@@ -47,10 +47,10 @@ public class CadastroTurmaActivity extends AppCompatActivity {
         spRegimeTurma = findViewById(R.id.spRegimeTurma);
 
         //lista os registros dos cursos cadastrados
-        String regime[] = new String[]{ "Semestral", "Anual" };
+        String spRegime[] = new String[]{ "Semestral", "Anual" };
 
         ArrayAdapter adapterCursos = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, regime);
+                android.R.layout.simple_list_item_1, spRegime);
         spRegimeTurma.setAdapter(adapterCursos);
 
         //Ação ao selecionar o item da lista
@@ -102,14 +102,14 @@ public class CadastroTurmaActivity extends AppCompatActivity {
     public void salvarTurma(){
         Turma turma = new Turma();
         turma.setCdTurma(Integer.parseInt(edCodTurma.getText().toString()));
-        turma.setNomeTurma(edNomeTurma.getText().toString());
-        turma.setRegimeTurma(edNomeTurma.getText().toString());
+        turma.setNome(edNomeTurma.getText().toString());
+        turma.setRegimeTurma(spRegimeTurma.getSelectedItem().toString());
 
         if(TurmaDAO.salvar(turma) > 0) {
             setResult(RESULT_OK);
             finish();
         }else
-            Util.customSnackBar(lnPrincipal, "Erro ao salvar a Turma ("+ turma.getNomeTurma()+") " +
+            Util.customSnackBar(lnPrincipal, "Erro ao salvar a Turma ("+ turma.getNome()+") " +
                     "verifique o log", 0);
 
     }
