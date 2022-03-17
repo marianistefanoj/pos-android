@@ -34,7 +34,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
         lnLista = findViewById(R.id.lnListaTurma);
 
-        atualizaListaTurma();
+       atualizaListaTurma();
     }
 
     public void atualizaListaTurma(){

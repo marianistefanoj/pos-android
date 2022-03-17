@@ -7,11 +7,14 @@ import java.util.Objects;
 public class Turma extends SugarRecord {
 
     private int cdTurma;
-    private String nomeTurma, regimeTurma;
+    private String nome, regimeTurma;
 
-    public Turma(int cdTurma, String nomeTurma, String regimeTurma) {
+    public Turma (){
+    }
+
+    public Turma(int cdTurma, String nome, String regimeTurma) {
         this.cdTurma = cdTurma;
-        this.nomeTurma = nomeTurma;
+        this.nome = nome;
         this.regimeTurma = regimeTurma;
     }
 
@@ -24,11 +27,11 @@ public class Turma extends SugarRecord {
     }
 
     public String getNomeTurma() {
-        return nomeTurma;
+        return nome;
     }
 
-    public void setNomeTurma(String nomeTurma) {
-        this.nomeTurma = nomeTurma;
+    public void setNomeTurma(String nome) {
+        this.nome = nome;
     }
 
     public String getRegimeTurma() {
@@ -44,11 +47,11 @@ public class Turma extends SugarRecord {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Turma turma = (Turma) o;
-        return cdTurma == turma.cdTurma && Objects.equals(nomeTurma, turma.nomeTurma) && Objects.equals(regimeTurma, turma.regimeTurma);
+        return cdTurma == turma.cdTurma && Objects.equals(nome, turma.nome) && Objects.equals(regimeTurma, turma.regimeTurma);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cdTurma, nomeTurma, regimeTurma);
+        return Objects.hash(nome);
     }
 }
