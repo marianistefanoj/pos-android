@@ -27,16 +27,18 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
     public static class ProfessorViewHolder extends RecyclerView.ViewHolder {
         TextInputEditText edNomeProfessor;
         TextInputEditText edCpfProfessor;
-        TextInputEditText edCurso;
         TextInputEditText edDtNasc;
+        TextInputEditText edCurso;
+        TextInputEditText edTurma;
 
         public ProfessorViewHolder(@NonNull View itemView) {
             super(itemView);
 
             edNomeProfessor = (TextInputEditText)itemView.findViewById(R.id.edNomeProfessor);
             edCpfProfessor =  (TextInputEditText)itemView.findViewById(R.id.edCpfProfessor);
-            edCurso = (TextInputEditText)itemView.findViewById(R.id.edCursoProfessor);
             edDtNasc = (TextInputEditText)itemView.findViewById(R.id.edDtNascimentoProfessor);
+            edCurso = (TextInputEditText)itemView.findViewById(R.id.edCursoProfessor);
+            edTurma = (TextInputEditText)itemView.findViewById(R.id.edTurmaProfessor);
 
         }
     }
@@ -60,6 +62,7 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
         holder.edNomeProfessor.setText(Professor.getNome());
         holder.edCurso.setText(Professor.getCurso());
         holder.edDtNasc.setText(Professor.getDtNascimento());
+        holder.edTurma.setText(Professor.getTurma());
 
     }
 

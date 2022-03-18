@@ -21,12 +21,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.cadastroalunos.dao.ProfessorDAO;
+import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Professor;
+import com.example.cadastroalunos.model.Turma;
 import com.example.cadastroalunos.util.CpfMask;
 import com.example.cadastroalunos.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class CadastroProfessorActivity extends AppCompatActivity {
 
@@ -40,7 +43,7 @@ public class CadastroProfessorActivity extends AppCompatActivity {
     private TextInputEditText edNomeProfessor;
     private TextInputEditText edCpfProfessor;
     private TextInputEditText edDtNascProfessor;
-    private MaterialSpinner spCursos;
+    private MaterialSpinner spCursos, spTurmas;
     private LinearLayout lnPrincipal;
 
     private int vAno;
@@ -74,15 +77,13 @@ public class CadastroProfessorActivity extends AppCompatActivity {
     }
 
     private void iniciaSpinners(){
+        // Curso
         spCursos = findViewById(R.id.spCursos);
-
         String cursos[] = new String[]{"Análise e Desenv. Sistemas",
                 "Administração", "Ciências Contábeis", "Direito",
                 "Farmácia", "Nutrição"};
-
         ArrayAdapter adapterCursos = new ArrayAdapter(this,
                 android.R.layout.simple_list_item_1,  cursos);
-
         spCursos.setAdapter(adapterCursos);
 
         //Ação ao selecionar o item da lista
@@ -107,6 +108,12 @@ public class CadastroProfessorActivity extends AppCompatActivity {
             }
         });
 
+        // Turma
+        spTurmas = findViewById(R.id.spTurmaP);
+        //Lista os registros das turmas cadastradas
+        List<Turma> turmas = TurmaDAO.retornaTurmas("",new String[]{}, "nome");
+        ArrayAdapter adapterTurmas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, turmas);
+        spTurmas.setAdapter(adapterTurmas);
 
     }
 
@@ -143,6 +150,7 @@ public class CadastroProfessorActivity extends AppCompatActivity {
         Professor.setCpf(edCpfProfessor.getText().toString());
         Professor.setDtNascimento(edDtNascProfessor.getText().toString());
         Professor.setCurso(spCursos.getSelectedItem().toString());
+        Professor.setTurma(spTurmas.getSelectedItem().toString());
 
         if(ProfessorDAO.salvar(Professor) > 0) {
 

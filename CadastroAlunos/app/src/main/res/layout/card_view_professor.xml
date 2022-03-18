@@ -55,6 +55,30 @@
                     android:backgroundTint="@color/white"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- DATA NASC -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/dtNasc">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/edDtNascimentoProfessor"
+                        android:focusable="false"
+                        android:backgroundTint="@color/white"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
             <!-- CURSO E PERIODO-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,27 +99,24 @@
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-
             </LinearLayout>
 
-            <!-- DATA NASC -->
+            <!-- Turma -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="5dp">
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:hint="@string/dtNasc">
+                    android:hint="@string/nomeTurma">
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/edDtNascimentoProfessor"
+                        android:id="@+id/edTurmaProfessor"
                         android:focusable="false"
                         android:backgroundTint="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>

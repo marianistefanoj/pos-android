@@ -54,4 +54,8 @@ public class Turma extends SugarRecord {
     public int hashCode() {
         return Objects.hash(cdTurma, nome, regimeTurma);
     }
+
+    @Override
+    public String toString(){ return nome;}
+
 }

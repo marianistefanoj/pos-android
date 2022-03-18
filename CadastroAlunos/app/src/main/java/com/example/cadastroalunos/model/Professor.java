@@ -10,15 +10,17 @@ public class Professor extends SugarRecord {
     private String cpf;
     private String dtNascimento;
     private String curso;
+    private String turma;
 
-    public Professor(){}
-
-    public Professor(String nome, String cpf, String dtNascimento, String curso) {
+    public Professor(String nome, String cpf, String dtNascimento, String curso, String turma) {
         this.nome = nome;
         this.cpf = cpf;
         this.dtNascimento = dtNascimento;
         this.curso = curso;
+        this.turma = turma;
     }
+
+    public Professor(){}
 
     public String getNome() {
         return nome;
@@ -50,6 +52,14 @@ public class Professor extends SugarRecord {
 
     public void setCurso(String curso) {
         this.curso = curso;
+    }
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
     }
 
     @Override
