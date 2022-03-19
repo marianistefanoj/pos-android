@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/spTurmaP"
         app:ms_arrowColor="?attr/colorPrimary"
-        app:ms_floatingLabelText="@string/cursos"
+        app:ms_floatingLabelText="@string/nomeTurma"
         app:ms_hint="@string/selecioneTurma"
         app:ms_multiline="false"
         android:layout_margin="10dp"/>

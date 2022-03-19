@@ -15,9 +15,11 @@ import android.widget.LinearLayout;
 import com.example.cadastroalunos.dao.AlunoDAO;
 import com.example.cadastroalunos.dao.DisciplinaDAO;
 import com.example.cadastroalunos.dao.ProfessorDAO;
+import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Aluno;
 import com.example.cadastroalunos.model.Disciplina;
 import com.example.cadastroalunos.model.Professor;
+import com.example.cadastroalunos.model.Turma;
 import com.example.cadastroalunos.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -30,7 +32,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     private TextInputEditText edCodDisciplina;
     private TextInputEditText edNomeDisciplina;
     private TextInputEditText edCargaHoraria;
-    private MaterialSpinner spCursos, spProfessor;
+    private MaterialSpinner spCursos, spProfessor, spTurmas;
     private LinearLayout lnPrincipal;
 
     @Override
@@ -85,6 +87,13 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
             }
         });
 
+        // Turma
+        spTurmas = findViewById(R.id.spTurmaD);
+        //Lista os registros das turmas cadastradas
+        List<Turma> turmas = TurmaDAO.retornaTurmas("",new String[]{}, "nome");
+        ArrayAdapter adapterTurmas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, turmas);
+        spTurmas.setAdapter(adapterTurmas);
+
     }
         //Validação dos campos
         private void validaCampos() {
@@ -113,6 +122,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         disciplina.setCargaHoraria(edCargaHoraria.getText().toString());
         disciplina.setCurso(spCursos.getSelectedItem().toString());
         disciplina.setProfessor(spProfessor.getSelectedItem().toString());
+        disciplina.setTurma(spTurmas.getSelectedItem().toString());
 
 
         if(DisciplinaDAO.salvar(disciplina) > 0) {

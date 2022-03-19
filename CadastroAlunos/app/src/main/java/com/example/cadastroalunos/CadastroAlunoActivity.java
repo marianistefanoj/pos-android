@@ -21,12 +21,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.cadastroalunos.dao.AlunoDAO;
+import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Aluno;
+import com.example.cadastroalunos.model.Turma;
 import com.example.cadastroalunos.util.CpfMask;
 import com.example.cadastroalunos.util.Util;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class CadastroAlunoActivity extends AppCompatActivity {
 
@@ -37,6 +40,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
     private TextInputEditText edDtMatAluno;
     private MaterialSpinner spCursos;
     private MaterialSpinner spPeriodo;
+    private MaterialSpinner spTurmas;
     private LinearLayout lnPrincipal;
 
     private int vAno;
@@ -113,6 +117,13 @@ public class CadastroAlunoActivity extends AppCompatActivity {
             }
         });
 
+        // Turma
+        spTurmas = findViewById(R.id.spTurmaA);
+        //Lista os registros das turmas cadastradas
+        List<Turma> turmas = TurmaDAO.retornaTurmas("",new String[]{}, "nome");
+        ArrayAdapter adapterTurmas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, turmas);
+        spTurmas.setAdapter(adapterTurmas);
+
 
     }
 
@@ -165,6 +176,7 @@ public class CadastroAlunoActivity extends AppCompatActivity {
         aluno.setDtMatricula(edDtMatAluno.getText().toString());
         aluno.setCurso(spCursos.getSelectedItem().toString());
         aluno.setPeriodo(spPeriodo.getSelectedItem().toString());
+        aluno.setTurma(spTurmas.getSelectedItem().toString());
 
         if(AlunoDAO.salvar(aluno) > 0) {
 

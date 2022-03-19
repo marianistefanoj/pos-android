@@ -32,6 +32,7 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHol
         TextInputEditText edPeriodo;
         TextInputEditText edDtMatricula;
         TextInputEditText edDtNasc;
+        TextInputEditText edTurma;
 
         public AlunoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -43,6 +44,7 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHol
             edPeriodo = (TextInputEditText)itemView.findViewById(R.id.edPeriodoAluno);
             edDtMatricula = (TextInputEditText)itemView.findViewById(R.id.edDtMatricula);
             edDtNasc = (TextInputEditText)itemView.findViewById(R.id.edDtNascAluno);
+            edTurma = (TextInputEditText)itemView.findViewById(R.id.edTurmaAluno);
 
         }
     }
@@ -69,6 +71,7 @@ public class AlunoAdapter extends RecyclerView.Adapter<AlunoAdapter.AlunoViewHol
         holder.edPeriodo.setText(aluno.getPeriodo());
         holder.edDtMatricula.setText(aluno.getDtMatricula());
         holder.edDtNasc.setText(aluno.getDtNasc());
+        holder.edTurma.setText(aluno.getTurma());
 
     }
 

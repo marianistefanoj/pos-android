@@ -32,6 +32,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         TextInputEditText edCargaHoraria;
         TextInputEditText edCurso;
         TextInputEditText edProfessor;
+        TextInputEditText edTurma;
 
         public DisciplinaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -41,7 +42,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
             edCargaHoraria =  (TextInputEditText)itemView.findViewById(R.id.edCargaHoraria);
             edCurso = (TextInputEditText)itemView.findViewById(R.id.edCursoDisciplina);
             edProfessor = (TextInputEditText)itemView.findViewById(R.id.edProfessor);
-
+            edTurma = (TextInputEditText)itemView.findViewById(R.id.edTurmaDisciplina);
         }
     }
 
@@ -67,6 +68,7 @@ public class DisciplinaAdapter extends RecyclerView.Adapter<DisciplinaAdapter.Di
         holder.edCargaHoraria.setText(Disciplina.getCargaHoraria());
         holder.edCurso.setText(Disciplina.getCurso());
         holder.edProfessor.setText(Disciplina.getProfessor());
+        holder.edTurma.setText(Disciplina.getTurma());
     }
 
     @Override

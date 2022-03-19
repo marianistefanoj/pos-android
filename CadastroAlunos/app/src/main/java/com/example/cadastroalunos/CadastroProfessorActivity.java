@@ -145,19 +145,20 @@ public class CadastroProfessorActivity extends AppCompatActivity {
     }
 
     public void salvarProfessor(){
-        Professor Professor = new Professor();
-        Professor.setNome(edNomeProfessor.getText().toString());
-        Professor.setCpf(edCpfProfessor.getText().toString());
-        Professor.setDtNascimento(edDtNascProfessor.getText().toString());
-        Professor.setCurso(spCursos.getSelectedItem().toString());
-        Professor.setTurma(spTurmas.getSelectedItem().toString());
+        Professor professor = new Professor();
+        professor.setNome(edNomeProfessor.getText().toString());
+        professor.setCpf(edCpfProfessor.getText().toString());
+        professor.setDtNascimento(edDtNascProfessor.getText().toString());
+        professor.setCurso(spCursos.getSelectedItem().toString());
+        professor.setTurma(spTurmas.getSelectedItem().toString());
 
-        if(ProfessorDAO.salvar(Professor) > 0) {
+
+        if(ProfessorDAO.salvar(professor) > 0) {
 
             setResult(RESULT_OK);
             finish();
         }else
-            Util.customSnackBar(lnPrincipal, "Erro ao salvar o Professor ("+Professor.getNome()+") " +
+            Util.customSnackBar(lnPrincipal, "Erro ao salvar o Professor ("+professor.getNome()+") " +
                     "verifique o log", 0);
 
 

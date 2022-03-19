@@ -11,15 +11,17 @@ public class Disciplina extends SugarRecord {
     private String cargaHoraria;
     private String curso;
     private String professor;
+    private String turma;
 
     public Disciplina(){
     }
-    public Disciplina(int cdDisciplina, String nome, String cargaHoraria, String curso, String professor) {
+    public Disciplina(int cdDisciplina, String nome, String cargaHoraria, String curso, String professor, String turma) {
         this.cdDisciplina = cdDisciplina;
         this.nome = nome;
         this.cargaHoraria = cargaHoraria;
         this.curso = curso;
         this.professor = professor;
+        this.turma = turma;
     }
 
     public int getCdDisciplina() {
@@ -60,6 +62,13 @@ public class Disciplina extends SugarRecord {
         this.professor = professor;
     }
 
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
 
     @Override
     public boolean equals(Object o) {

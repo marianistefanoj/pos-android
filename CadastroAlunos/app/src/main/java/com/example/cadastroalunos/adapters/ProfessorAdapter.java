@@ -56,13 +56,13 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
 
     @Override
     public void onBindViewHolder(@NonNull ProfessorViewHolder holder, int position) {
-        Professor Professor = listaProfessores.get(position);
+        Professor professor = listaProfessores.get(position);
 
-        holder.edCpfProfessor.setText(Professor.getCpf());
-        holder.edNomeProfessor.setText(Professor.getNome());
-        holder.edCurso.setText(Professor.getCurso());
-        holder.edDtNasc.setText(Professor.getDtNascimento());
-        holder.edTurma.setText(Professor.getTurma());
+        holder.edCpfProfessor.setText(professor.getCpf());
+        holder.edNomeProfessor.setText(professor.getNome());
+        holder.edCurso.setText(professor.getCurso());
+        holder.edDtNasc.setText(professor.getDtNascimento());
+        holder.edTurma.setText(professor.getTurma());
 
     }
 
