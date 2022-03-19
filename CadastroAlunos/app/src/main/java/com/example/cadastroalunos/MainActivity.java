@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     public void cadastrarAluno(View view) {
         Intent intent = new Intent(this, ListaAlunoActivity.class);
         startActivity(intent);
