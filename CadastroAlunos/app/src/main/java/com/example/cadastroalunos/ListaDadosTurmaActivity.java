@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class ListaDadosTurmaActivity extends AppCompatActivity {
 
@@ -11,27 +12,29 @@ public class ListaDadosTurmaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_dados_turma);
+      /*  Bundle dados = getIntent().getExtras();
+        int id = dados.getInt("id");
+        System.out.println(id);
+
+       */
     }
 
-    /*
-
-    public void ListarAlunosTurma(){
-        Intent listaAlunosTurma = new Intent(this, listaAlunosTurma.class);
+    public void ListarAlunosTurma(View view){
+        Intent listaAlunosTurma = new Intent(this, ListaAlunosTurmaActivity.class);
         startActivity(listaAlunosTurma);
     }
 
-
-    public void ListarDisciplinasTurma(){
-        Intent listaDisciplinasTurma = new Intent(this, listaDisciplinasTurma.class);
+    public void ListarDisciplinasTurma(View view){
+        Intent listaDisciplinasTurma = new Intent(this, ListaDisciplinasTurmaActivity.class);
         startActivity(listaDisciplinasTurma);
     }
 
-    public void ListarProfessoresTurma(){
-        Intent listaProfessoresTurma = new Intent(this, listaProfessoresTurma.class);
+    public void ListarProfessoresTurma(View view){
+        Intent listaProfessoresTurma = new Intent(this, ListaProfessoresTurmaActivity.class);
         startActivity(listaProfessoresTurma);
 
     }
 
-     */
+
 
 }

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.cadastroalunos.adapters.DisciplinaAdapter;
@@ -80,5 +81,10 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
             Util.customSnackBar(lnLista, "Disciplina salvo com sucesso!", 1);
         }
         atualizaListaDisciplina();
+    }
+
+    public void listaAlunosDiciplinas (View view){
+        Intent listaAlunos = new Intent(this, ListaAlunoDisciplinaActivity.class );
+        startActivity(listaAlunos);
     }
 }

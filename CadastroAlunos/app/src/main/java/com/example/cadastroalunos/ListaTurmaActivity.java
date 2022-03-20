@@ -13,12 +13,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.cadastroalunos.adapters.TurmaAdapter;
 import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Turma;
 import com.example.cadastroalunos.util.Util;
+import com.orm.SugarRecord;
 
 import java.time.Clock;
 import java.util.ArrayList;
@@ -85,21 +87,25 @@ public class ListaTurmaActivity extends AppCompatActivity {
     }
 
     public void abrirListaDadosTurma(View view){
+       // Turma turma = getById
+
         Intent dadosTurma = new Intent(this, ListaDadosTurmaActivity.class);
+
+        //dadosTurma.putExtra("turma", turma);
+
         startActivity(dadosTurma);
 
-        /*
-        int id = Turma.findById(R.id.codTurma);
-        encontrarIdTurma(id);
+    //    System.out.println(String.valueOf(turma.getId()));
 
-         */
+
+
     }
 
     public void encontrarIdTurma(int id){
 
         // tenta pegar o id da turma e tenta imprimir o nome
         Turma turma = TurmaDAO.getTurma(id);
-        System.out.println("ID da turma" + turma.getNome());
+        System.out.println("Id da turma" + turma.getNome());
     }
 
 }

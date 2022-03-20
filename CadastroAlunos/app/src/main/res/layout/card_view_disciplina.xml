@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cvAluno"
@@ -14,6 +15,10 @@
         app:cardUseCompatPadding="true">
 
         <LinearLayout
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="listaAlunosDiciplinas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

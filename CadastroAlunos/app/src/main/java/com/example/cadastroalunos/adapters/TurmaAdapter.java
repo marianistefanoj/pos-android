@@ -56,6 +56,8 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
     public void onBindViewHolder(@NonNull TurmaAdapter.TurmaViewHolder holder, int position) {
         Turma Turma = listaTurmas.get(position);
 
+        System.out.println(String.valueOf(Turma.getId()));
+
         holder.edCodigoTurma.setText(String.valueOf(Turma.getCdTurma()));
         holder.edNomeTurma.setText(Turma.getNome());
         holder.edRegimeTurma.setText(Turma.getRegimeTurma());
