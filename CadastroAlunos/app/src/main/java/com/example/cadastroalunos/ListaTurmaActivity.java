@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -30,6 +31,7 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
     private RecyclerView rvListaTurmas;
     private LinearLayout lnLista;
+    private Button buscaTurma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,24 @@ public class ListaTurmaActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvListaTurmas.setLayoutManager(llm);
         rvListaTurmas.setAdapter(adapter);
+
+
+        //int i = TurmaDAO.getTurma();
+        //System.out.println("Ver os valores: " + i );
+
+/*
+        buscaTurma.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                int id = rvListaTurmas.getId();
+                Intent dadosTurma = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
+                dadosTurma.putExtra("id", id);
+                startActivity(dadosTurma);
+            }
+        });
+
+
+ */
+
     }
 
     @Override
@@ -87,25 +107,12 @@ public class ListaTurmaActivity extends AppCompatActivity {
     }
 
     public void abrirListaDadosTurma(View view){
-       // Turma turma = getById
-
-        Intent dadosTurma = new Intent(this, ListaDadosTurmaActivity.class);
-
-        //dadosTurma.putExtra("turma", turma);
-
+        Turma turma = TurmaDAO.getTurma(2);
+        Intent dadosTurma = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
+        dadosTurma.putExtra("turma", turma);
         startActivity(dadosTurma);
 
-    //    System.out.println(String.valueOf(turma.getId()));
-
-
-
     }
 
-    public void encontrarIdTurma(int id){
-
-        // tenta pegar o id da turma e tenta imprimir o nome
-        Turma turma = TurmaDAO.getTurma(id);
-        System.out.println("Id da turma" + turma.getNome());
-    }
 
 }

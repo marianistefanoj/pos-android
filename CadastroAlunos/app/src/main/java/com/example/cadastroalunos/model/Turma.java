@@ -2,9 +2,10 @@ package com.example.cadastroalunos.model;
 
 import com.orm.SugarRecord;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Turma extends SugarRecord {
+public class Turma extends SugarRecord implements Serializable {
 
     private int cdTurma;
     private String nome, regimeTurma;
