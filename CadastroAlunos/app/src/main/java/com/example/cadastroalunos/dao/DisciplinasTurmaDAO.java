@@ -2,7 +2,7 @@ package com.example.cadastroalunos.dao;
 
 import android.util.Log;
 
-import com.example.cadastroalunos.model.Turma;
+import com.example.cadastroalunos.model.DisciplinasTurma;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,37 +10,37 @@ import java.util.List;
 public class DisciplinasTurmaDAO {
 
 
-    public static long salvar(Turma turma){
+    public static long salvar(DisciplinasTurma disciplinasTurma){
         try{
-            return turma.save();
+            return disciplinasTurma.save();
         }catch (Exception ex){
             Log.e("Erro", "Erro ao salvar o turma: "+ex.getMessage());
             return -1;
         }
     }
 
-    public static Turma getTurma(int id){
+    public static DisciplinasTurma getDisciplinasTurma(int id){
         try{
-            return Turma.findById(Turma.class, id);
+            return DisciplinasTurma.findById(DisciplinasTurma.class, id);
         }catch (Exception ex){
             Log.e("Erro", "Erro ao retornar o turma: "+ex.getMessage());
             return null;
         }
     }
 
-    public static List<Turma> retornaTurmas(String where, String[]whereArgs, String orderBy){
-        List<Turma> list = new ArrayList<>();
+    public static List<DisciplinasTurma> retornaDisciplinasTurma(String where, String[]whereArgs, String orderBy){
+        List<DisciplinasTurma> list = new ArrayList<>();
         try{
-            list = Turma.find(Turma.class, where, whereArgs, "", orderBy, "");
+            list = DisciplinasTurma.find(DisciplinasTurma.class, where, whereArgs, "", orderBy, "");
         }catch (Exception ex){
             Log.e("Erro", "Erro ao retornar lista de turmas: "+ex.getMessage());
         }
         return list;
     }
 
-    public static boolean delete(Turma turma){
+    public static boolean delete(DisciplinasTurma disciplinasTurma){
         try{
-            return Turma.delete(turma);
+            return DisciplinasTurma.delete(disciplinasTurma);
         }catch (Exception ex){
             Log.e("Erro", "Erro ao apagar o turma: "+ex.getMessage());
             return false;

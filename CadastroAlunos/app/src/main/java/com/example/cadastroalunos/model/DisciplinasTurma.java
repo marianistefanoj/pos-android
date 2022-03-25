@@ -1,8 +1,10 @@
 package com.example.cadastroalunos.model;
 
+import com.orm.SugarRecord;
+
 import java.util.Objects;
 
-public class DisciplinasTurma {
+public class DisciplinasTurma extends SugarRecord {
 
     private long idDisciplinas;
     private long idTurma;

@@ -1,6 +1,7 @@
 package com.example.cadastroalunos.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cadastroalunos.ListaDadosTurmaActivity;
+import com.example.cadastroalunos.ListaTurmaActivity;
 import com.example.cadastroalunos.R;
+import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Turma;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -64,6 +68,7 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
         holder.edNomeTurma.setText(Turma.getNome());
         holder.edRegimeTurma.setText(Turma.getRegimeTurma());
     }
+
 
     @Override
     public int getItemCount() {

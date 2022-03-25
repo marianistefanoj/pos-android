@@ -32,7 +32,6 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
     private RecyclerView rvListaTurmas;
     private LinearLayout lnLista;
-    private CardView card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +108,9 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
         //pegar id
 
-        int id = findViewById(R.id.pegarId);
+        //int id = findViewById(R.id.pegarId);
 
+        int id = 1;
         Turma turma = TurmaDAO.getTurma(id);
         Intent dadosTurma = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
         dadosTurma.putExtra("turma", turma);
