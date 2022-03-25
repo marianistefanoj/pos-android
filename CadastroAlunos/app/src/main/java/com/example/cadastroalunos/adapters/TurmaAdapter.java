@@ -24,14 +24,17 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
         this.context = context;
     }
 
+
     public static class TurmaViewHolder extends RecyclerView.ViewHolder {
         TextInputEditText edCodigoTurma;
         TextInputEditText edNomeTurma;
         TextInputEditText edRegimeTurma;
+        TextInputEditText pegarId;
+
 
         public TurmaViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            pegarId= (TextInputEditText)itemView.findViewById(R.id.pegarId);
             edCodigoTurma = (TextInputEditText)itemView.findViewById(R.id.codTurma);
             edNomeTurma = (TextInputEditText)itemView.findViewById(R.id.nomeTurma);
             edRegimeTurma = (TextInputEditText)itemView.findViewById(R.id.regimeTurma);
@@ -56,8 +59,7 @@ public class TurmaAdapter extends RecyclerView.Adapter<TurmaAdapter.TurmaViewHol
     public void onBindViewHolder(@NonNull TurmaAdapter.TurmaViewHolder holder, int position) {
         Turma Turma = listaTurmas.get(position);
 
-        //System.out.println(String.valueOf(Turma.getId()));
-
+        holder.pegarId.setText(String.valueOf(Turma.getId()));
         holder.edCodigoTurma.setText(String.valueOf(Turma.getCdTurma()));
         holder.edNomeTurma.setText(Turma.getNome());
         holder.edRegimeTurma.setText(Turma.getRegimeTurma());

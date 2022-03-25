@@ -3,6 +3,7 @@ package com.example.cadastroalunos;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,46 +32,42 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
     private RecyclerView rvListaTurmas;
     private LinearLayout lnLista;
-    private Button buscaTurma;
+    private CardView card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_turma);
-
         lnLista = findViewById(R.id.lnListaTurma);
 
        atualizaListaTurma();
+
+       /*
+       card.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
+               startActivity(i);
+           }
+       });
+
+
+
+
+        */
+
+
     }
 
     public void atualizaListaTurma(){
         List<Turma> listaTurma = new ArrayList<>();
         listaTurma = TurmaDAO.retornaTurmas("", new String[]{}, "nome asc");
         Log.e("PHS", "Tamanho da lista: "+ listaTurma.size());
-
         rvListaTurmas = findViewById(R.id.rvListaTurmas);
         TurmaAdapter adapter = new TurmaAdapter(listaTurma, this);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvListaTurmas.setLayoutManager(llm);
         rvListaTurmas.setAdapter(adapter);
-
-
-        //int i = TurmaDAO.getTurma();
-        //System.out.println("Ver os valores: " + i );
-
-/*
-        buscaTurma.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                int id = rvListaTurmas.getId();
-                Intent dadosTurma = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
-                dadosTurma.putExtra("id", id);
-                startActivity(dadosTurma);
-            }
-        });
-
-
- */
-
     }
 
     @Override
@@ -106,13 +103,22 @@ public class ListaTurmaActivity extends AppCompatActivity {
         atualizaListaTurma();
     }
 
+
+
     public void abrirListaDadosTurma(View view){
-        Turma turma = TurmaDAO.getTurma(2);
+
+        //pegar id
+
+        int id = findViewById(R.id.pegarId);
+
+        Turma turma = TurmaDAO.getTurma(id);
         Intent dadosTurma = new Intent(ListaTurmaActivity.this, ListaDadosTurmaActivity.class);
         dadosTurma.putExtra("turma", turma);
         startActivity(dadosTurma);
 
     }
+
+
 
 
 }
