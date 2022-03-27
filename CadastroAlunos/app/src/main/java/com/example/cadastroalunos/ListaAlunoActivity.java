@@ -66,6 +66,8 @@ public class ListaAlunoActivity extends AppCompatActivity {
                     Long id = spTurmas.getSelectedItemId();
                     List<Turma> turmas = TurmaDAO.retornaTurmas("CD_TURMA = ?", new String[]{"" + id}, "nome");
                     varSpinner = turmas.toString();
+                    varSpinner = varSpinner.replace("[", "");
+                    varSpinner = varSpinner.replace("]", "");
                     System.out.println(varSpinner);
                     atualizaListaAluno();
                 }
@@ -91,7 +93,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
         if (varSpinner == "")
             listaAluno = AlunoDAO.retornaAlunos("", new String[]{}, "nome asc, turma asc");
         else if (varSpinner != "")
-            listaAluno = AlunoDAO.retornaAlunos("turma = ?", new String[]{"algoritmo"}, "nome asc, turma asc");
+            listaAluno = AlunoDAO.retornaAlunos("turma = ?", new String[]{varSpinner} , "nome asc, turma asc");
         Log.e("PHS", "Tamanho da lista: "+listaAluno.size());
 
         rvListaAlunos = findViewById(R.id.rvListaAlunos);
