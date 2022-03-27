@@ -2,15 +2,15 @@
 
 Desenvolver um APP para controle de notas e frequência    
 Deve conter as seguintes funcionalidades:    
-Cadastro de Aluno    
-Cadastro de Professor    
-Cadastro de Disciplina    
-Lançamento de Notas (Selecionar se é regime anual ou semestral)    
-Cadastro de Turmas.    
-Lançamento de Frequências.    
-Exibir se o aluno está aprovado ou não (Média 6,0)    
-Exibir se o aluno está aprovado ou não por faltas (Não pode passar de 30% de faltas).    
-Layout fica livre para cada um.    
+    - Cadastro de Aluno    
+    - Cadastro de Professor    
+    - Cadastro de Disciplina    
+    - Lançamento de Notas (Selecionar se é regime anual ou semestral)    
+    - Cadastro de Turmas.    
+    - Lançamento de Frequências.    
+    - Exibir se o aluno está aprovado ou não (Média 6,0)    
+    - Exibir se o aluno está aprovado ou não por faltas (Não pode passar de 30% de faltas).    
+    - Layout fica livre para cada um.    
  
 Entrega dia 27/03    
 
@@ -24,7 +24,7 @@ Apesar das dificuldades, nunca utilizamos aplicações Android e utilizamos java
 
 Regras Definidas:    
 
-Para cadastrar disciplinas, professores e alunos é necessário cadastrar primeiro as turmas    
-Para cadastrar as disciplinas é necessário cadastrar os professores.    
-É necessário alunos para cadastrar alunos na disciplina.    
-Para filtrar os alunos, professores e disciplinas por turma é necessário selecionar a turma no spinner.    
+    - Para cadastrar disciplinas, professores e alunos é necessário cadastrar primeiro as turmas    
+    - Para cadastrar as disciplinas é necessário cadastrar os professores.    
+    - É necessário alunos para cadastrar alunos na disciplina.    
+    - Para filtrar os alunos, professores e disciplinas por turma é necessário selecionar a turma no spinner.    
