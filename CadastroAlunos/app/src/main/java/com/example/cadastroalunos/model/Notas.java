@@ -4,17 +4,12 @@ import com.orm.SugarRecord;
 
 import java.util.Objects;
 
-public class Frequencia extends SugarRecord {
+public class Notas extends SugarRecord {
 
     private Aluno aluno;
     private Disciplina disciplina;
-    private double frequencia;
+    private double frequencias;
 
-    public Frequencia(Aluno aluno, Disciplina disciplina, double frequencia) {
-        this.aluno = aluno;
-        this.disciplina = disciplina;
-        this.frequencia = frequencia;
-    }
 
     public Aluno getAluno() {
         return aluno;
@@ -32,24 +27,24 @@ public class Frequencia extends SugarRecord {
         this.disciplina = disciplina;
     }
 
-    public double getFrequencia() {
-        return frequencia;
+    public double getFrequencias() {
+        return frequencias;
     }
 
-    public void setFrequencia(double frequencia) {
-        this.frequencia = frequencia;
+    public void setFrequencias(double frequencias) {
+        this.frequencias = frequencias;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Frequencia that = (Frequencia) o;
-        return Double.compare(that.frequencia, frequencia) == 0 && Objects.equals(aluno, that.aluno) && Objects.equals(disciplina, that.disciplina);
+        Notas notas = (Notas) o;
+        return Double.compare(notas.frequencias, frequencias) == 0 && Objects.equals(aluno, notas.aluno) && Objects.equals(disciplina, notas.disciplina);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(aluno, disciplina, frequencia);
+        return Objects.hash(aluno, disciplina, frequencias);
     }
 }
