@@ -1,5 +1,8 @@
 # Trabalho Final da Pós Android
 
+
+#### Importante: Para visualizar o trabalho é necessário entrar na branch master!
+
 Desenvolver um APP para controle de notas e frequência    
 Deve conter as seguintes funcionalidades:    
 Cadastro de Aluno    
