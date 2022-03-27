@@ -24,4 +24,6 @@
     <string name="selecioneRegimeTurma">Regime da turma</string>
     <string name="selecioneTurma">Selecione a Turma</string>
     <string name="pegarId">Id</string>
+    <string name="listaAlunos">nomeAlunos</string>
+    <string name="selecioneAlunos">Selecionar Alunos</string>
 </resources>

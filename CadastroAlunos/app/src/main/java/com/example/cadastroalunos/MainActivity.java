@@ -33,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-
     public void cadastrarAlunosDisciplina(View view){
-        Intent aD = new Intent(this, .class);
+        Intent aD = new Intent(this, ListaAlunoDisciplinaActivity.class);
         startActivity(aD);
     }
 
      */
+
+
 
     public void cadastrarTurma(View view){
         Intent intentTurma = new Intent(this, ListaTurmaActivity.class);

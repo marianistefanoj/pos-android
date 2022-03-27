@@ -83,8 +83,12 @@ public class ListaDisciplinaActivity extends AppCompatActivity {
         atualizaListaDisciplina();
     }
 
+    /*
+
     public void listaAlunosDiciplinas (View view){
         Intent listaAlunos = new Intent(this, ListaAlunoDisciplinaActivity.class );
         startActivity(listaAlunos);
     }
+
+     */
 }

@@ -79,5 +79,47 @@
         app:ms_hint="@string/selecioneTurma"
         app:ms_multiline="false"
         android:layout_margin="10dp"/>
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edAdicionarAlunos"
+        app:ms_arrowColor="?attr/colorPrimary"
+        app:ms_floatingLabelText="@string/listaAlunos"
+        app:ms_hint="@string/selecioneAlunos"
+        app:ms_multiline="false"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_alunos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_500"
+            app:shapeAppearanceOverlay="@style/square"
+            android:src="@drawable/ic_add"
+            app:tint="@null" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvAlunosDisciplina"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
 </LinearLayout>
 </ScrollView>

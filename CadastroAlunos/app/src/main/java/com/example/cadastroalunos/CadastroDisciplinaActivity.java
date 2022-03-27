@@ -11,19 +11,25 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.example.cadastroalunos.dao.AlunoDAO;
+import com.example.cadastroalunos.dao.AlunosDisciplinasDAO;
 import com.example.cadastroalunos.dao.DisciplinaDAO;
 import com.example.cadastroalunos.dao.ProfessorDAO;
 import com.example.cadastroalunos.dao.TurmaDAO;
 import com.example.cadastroalunos.model.Aluno;
+import com.example.cadastroalunos.model.AlunosDisciplina;
 import com.example.cadastroalunos.model.Disciplina;
 import com.example.cadastroalunos.model.Professor;
 import com.example.cadastroalunos.model.Turma;
 import com.example.cadastroalunos.util.Util;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 
@@ -32,24 +38,41 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
     private TextInputEditText edCodDisciplina;
     private TextInputEditText edNomeDisciplina;
     private TextInputEditText edCargaHoraria;
-    private MaterialSpinner spCursos, spProfessor, spTurmas;
+    private MaterialSpinner spCursos, spProfessor, spTurmas, spAdicionarAlunos;
     private LinearLayout lnPrincipal;
+    private ListView lvAlunosDisciplina;
+    private List<Aluno> alunos = new ArrayList<>();
+    private List<Aluno> disciplinaAlunos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_disciplina);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         edCodDisciplina = findViewById(R.id.edCodDisciplina);
         edNomeDisciplina = findViewById(R.id.edNomeDisciplina);
         edCargaHoraria = findViewById(R.id.edCargaHoraria);
         lnPrincipal = findViewById(R.id.lnPrincipal);
+
+        spAdicionarAlunos = findViewById(R.id.edAdicionarAlunos);
+
+        lvAlunosDisciplina = findViewById(R.id.lvAlunosDisciplina);
+
+        FloatingActionButton addAluno = findViewById(R.id.add_alunos);
+        FloatingActionButton addAlunoDisciplina = findViewById(R.id.add_alunos_disciplina);
+
+        addAluno.setOnClickListener(view -> adicionaAlunos());
+        addAlunoDisciplina.setOnClickListener(view -> );
+
         iniciaSpinners();
     }
 
     private void iniciaSpinners() {
         spCursos = findViewById(R.id.spCursos);
         spProfessor = findViewById(R.id.spProfessor);
+
 
         //lista os registros dos cursos cadastrados
         String cursos[] = new String[]{"Análise e Desenv. Sistemas",
@@ -64,6 +87,7 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         List<Professor> professores = ProfessorDAO.retornaProfessores("",new String[]{}, "nome");
         ArrayAdapter adapterProfessores = new ArrayAdapter(this, android.R.layout.simple_list_item_1, professores);
         spProfessor.setAdapter(adapterProfessores);
+
 
         //Ação ao selecionar o item da lista
         spCursos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -93,6 +117,9 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         List<Turma> turmas = TurmaDAO.retornaTurmas("",new String[]{}, "nome");
         ArrayAdapter adapterTurmas = new ArrayAdapter(this, android.R.layout.simple_list_item_1, turmas);
         spTurmas.setAdapter(adapterTurmas);
+
+
+
 
     }
         //Validação dos campos
@@ -127,6 +154,17 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
 
         if(DisciplinaDAO.salvar(disciplina) > 0) {
 
+            for(Aluno aluno : disciplinaAlunos ){
+
+                AlunosDisciplina alunosDisciplina = new AlunosDisciplina();
+                alunosDisciplina.setAlunos(aluno);
+
+                if (AlunosDisciplinasDAO.salvar(alunosDisciplina) <= 0)
+                    Util.customSnackBar(lnPrincipal, "Deu ruim aqui ("+ aluno.getNome()+") " +
+                            "verifique o log", 0);
+
+            }
+
             setResult(RESULT_OK);
             finish();
         }else
@@ -134,6 +172,17 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
                     "verifique o log", 0);
 
     }
+
+    private void adicionaAlunos(){
+        Aluno aluno = (Aluno) spAdicionarAlunos.getSelectedItem();
+        disciplinaAlunos.add(aluno);
+        alunos.remove(aluno);
+        spAdicionarAlunos.setSelection(0);
+
+        ArrayAdapter adapterAluno = new ArrayAdapter(this, android.R.layout.simple_list_item_1, disciplinaAlunos);
+        lvAlunosDisciplina.setAdapter(adapterAluno);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

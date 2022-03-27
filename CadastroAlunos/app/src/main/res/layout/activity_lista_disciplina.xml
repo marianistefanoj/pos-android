@@ -14,4 +14,26 @@
         android:layout_margin="10dp"
         android:id="@+id/rvListaDisciplinas"/>
 
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_alunos_disciplina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@drawable/ic_add"
+            android:layout_margin="10dp"
+            app:tint="@null" />
+
+    </LinearLayout>
+
+
+
+
+
 </LinearLayout>
