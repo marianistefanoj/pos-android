@@ -48,6 +48,22 @@ public class AlunoDAO {
 
     }
 
+/*
+    public static List<Aluno> getListAlunosDisciplinas(String idDisciplina) {
+        List<Aluno> alunos = new ArrayList<>();
+
+        try {
+            alunos = Aluno.findWithQuery(Aluno.class, AQUI preciso de uma consulta , idDisciplina);
+        }
+        catch (Exception ex) {
+            Log.e("Erro", "Erro ao buscar a lista de alunos da disciplina: " + ex.getMessage());
+        }
+
+        return alunos;
+    }
+
+ */
+
 
 
 

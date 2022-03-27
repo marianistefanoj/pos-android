@@ -61,10 +61,10 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         lvAlunosDisciplina = findViewById(R.id.lvAlunosDisciplina);
 
         FloatingActionButton addAluno = findViewById(R.id.add_alunos);
-        FloatingActionButton addAlunoDisciplina = findViewById(R.id.add_alunos_disciplina);
+        //FloatingActionButton addAlunoDisciplina = findViewById(R.id.add_alunos_disciplina);
 
         addAluno.setOnClickListener(view -> adicionaAlunos());
-        addAlunoDisciplina.setOnClickListener(view -> );
+       // addAlunoDisciplina.setOnClickListener(view -> salvarDisciplina());
 
         iniciaSpinners();
     }
@@ -87,6 +87,11 @@ public class CadastroDisciplinaActivity extends AppCompatActivity {
         List<Professor> professores = ProfessorDAO.retornaProfessores("",new String[]{}, "nome");
         ArrayAdapter adapterProfessores = new ArrayAdapter(this, android.R.layout.simple_list_item_1, professores);
         spProfessor.setAdapter(adapterProfessores);
+
+
+        alunos = AlunoDAO.retornaAlunos("", new String[]{}, "nome");
+        ArrayAdapter adapterAlunos = new ArrayAdapter(this, android.R.layout.simple_list_item_1, alunos);
+        spAdicionarAlunos.setAdapter(adapterAlunos);
 
 
         //Ação ao selecionar o item da lista
