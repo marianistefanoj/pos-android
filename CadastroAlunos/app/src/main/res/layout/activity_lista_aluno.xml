@@ -8,6 +8,17 @@
     android:orientation="vertical"
     android:id="@+id/lnLista">
 
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spTurmaLA"
+        app:ms_arrowColor="?attr/colorPrimary"
+        app:ms_floatingLabelText="@string/nomeTurma"
+        app:ms_hint="@string/selecioneTurma"
+        app:ms_multiline="false"
+        android:layout_margin="10dp"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
