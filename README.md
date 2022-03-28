@@ -1,7 +1,7 @@
 # Trabalho Final da Pós Android
 
 
-RA 030118212 Stefano Julio Mariani     
+RA 03018212 Stefano Julio Mariani     
 RA 00215064 William Schanoski    
 
 Desenvolver um APP para controle de notas e frequência    
